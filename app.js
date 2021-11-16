@@ -18,7 +18,7 @@ app.use(express.static("public"))
 
 app.get('/', function (req, res) {
 
-  let day = date();
+  let day = date.getDay();
 
   res.render("list", {
     listTitle: day,
@@ -47,7 +47,7 @@ app.get("/work", function (req, res) {
   });
 });
 
-app.post("/work",function (req, res) {
+app.post("/work", function (req, res) {
   let item = req.body.newItem;
   workItems.push(item);
   res.redirect("/work");

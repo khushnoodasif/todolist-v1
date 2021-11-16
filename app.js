@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 app.get("/", function (req, res) {
 
@@ -34,7 +34,7 @@ app.get("/work", function (req, res) {
 
 app.get("/about", function (req, res) {
   res.render("about");
-})
+});
 
 app.post("/", function (req, res) {
 
@@ -54,7 +54,7 @@ app.post("/work", function (req, res) {
   const item = req.body.newItem;
   workItems.push(item);
   res.redirect("/work");
-})
+});
 
 app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");

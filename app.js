@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
 const date = require(__dirname + "/date.js");
 
 const app = express();
@@ -16,7 +15,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static("public"))
 
-app.get('/', function (req, res) {
+app.get("/", function (req, res) {
 
   const day = date.getDate();
 
@@ -26,7 +25,18 @@ app.get('/', function (req, res) {
   });
 });
 
-app.post('/', function (req, res) {
+app.get("/work", function (req, res) {
+  res.render("list", {
+    listTitle: "Work",
+    newListItems: workItems
+  });
+});
+
+app.get("/about", function (req, res) {
+  res.render("about");
+})
+
+app.post("/", function (req, res) {
 
   const item = req.body.newItem;
 
@@ -35,26 +45,15 @@ app.post('/', function (req, res) {
     res.redirect("/work");
   } else {
     items.push(item);
-    res.redirect('/');
+    res.redirect("/");
   }
 
-});
-
-app.get("/work", function (req, res) {
-  res.render("list", {
-    listTitle: "For Work",
-    newListItems: workItems
-  });
 });
 
 app.post("/work", function (req, res) {
   const item = req.body.newItem;
   workItems.push(item);
   res.redirect("/work");
-})
-
-app.get("/about", function (req, res) {
-  res.render("about");
 })
 
 app.listen(3000, function () {

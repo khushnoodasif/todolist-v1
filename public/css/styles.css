@@ -14,6 +14,7 @@ h1 {
   color: #fff;
   padding: 10px;
   font-size: 50px;
+  text-align: center;
 }
 
 .box {
@@ -70,7 +71,7 @@ button {
   background-color: #45b298;
   color: #fff;
   font-size: 30px;
-  padding-bottom: 6px;
+  padding-bottom: 0px;
   border-width: 0;
 }
 
@@ -95,8 +96,46 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
+ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #45b298;
+  border-radius: 20px;
+}
+
+.ul-about {
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #45b298;
+  border-radius: 20px;
+  text-align: center;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #020c1b;
+  background-image: -webkit-linear-gradient(65deg, #020c1b 45%, #0a192f 55%);
+}
+
 footer {
   color: white;
   text-align: center;
   font-family: 'Arial';
+  padding: 30px;
 }

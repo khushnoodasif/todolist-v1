@@ -36,7 +36,7 @@ app.post('/', function (req, res) {
 
   let item = req.body.newItem;
 
-  if (req.body.list === "Work") {
+  if (req.body.list === "For Work") {
     workItems.push(item);
     res.redirect("/work");
   } else {
@@ -52,6 +52,12 @@ app.get("/work", function (req, res) {
     newListItems: workItems
   });
 });
+
+app.post("/work",function (req, res) {
+  let item = req.body.newItem;
+  workItems.push(item);
+  res.redirect("/work");
+})
 
 app.get("/about", function (req, res) {
   res.render("about");
